@@ -2,16 +2,19 @@ package org.jellyfin.androidtv.ui.preference.screen
 
 import org.jellyfin.androidtv.R
 import org.jellyfin.androidtv.preference.UserPreferences
+import org.jellyfin.androidtv.preference.UserSettingPreferences
 import org.jellyfin.androidtv.preference.constant.AppTheme
 import org.jellyfin.androidtv.preference.constant.ClockBehavior
 import org.jellyfin.androidtv.preference.constant.RatingType
 import org.jellyfin.androidtv.preference.constant.WatchedIndicatorBehavior
+import org.jellyfin.androidtv.ui.preference.custom.DurationSeekBarPreference
 import org.jellyfin.androidtv.ui.preference.dsl.OptionsFragment
 import org.jellyfin.androidtv.ui.preference.dsl.checkbox
 import org.jellyfin.androidtv.ui.preference.dsl.enum
 import org.jellyfin.androidtv.ui.preference.dsl.link
 import org.jellyfin.androidtv.ui.preference.dsl.list
 import org.jellyfin.androidtv.ui.preference.dsl.optionsScreen
+import org.jellyfin.androidtv.ui.preference.dsl.seekbar
 import org.jellyfin.androidtv.ui.preference.dsl.shortcut
 import org.jellyfin.androidtv.util.getQuantityString
 import org.koin.android.ext.android.inject
@@ -87,6 +90,19 @@ class CustomizationPreferencesScreen : OptionsFragment() {
 				setContent(R.string.pref_libraries_description)
 				icon = R.drawable.ic_grid
 				withFragment<LibrariesPreferencesScreen>()
+			}
+
+			@Suppress("MagicNumber")
+			seekbar {
+				setTitle(R.string.pref_up_next_max)
+				setContent(R.string.pref_up_next_max_description)
+				min = 1
+				max = 365
+				increment = 1
+				valueFormatter = object : DurationSeekBarPreference.ValueFormatter() {
+					override fun display(value: Int) = "${value}days"
+				}
+				bind(userPreferences, UserPreferences.nextUpTimeout)
 			}
 		}
 

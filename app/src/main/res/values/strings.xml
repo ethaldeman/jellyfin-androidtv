@@ -427,6 +427,8 @@
     <string name="pref_home_description">Configure shown sections</string>
     <string name="pref_libraries">Libraries</string>
     <string name="pref_libraries_description">Change how libraries are displayed</string>
+    <string name="pref_up_next_max">Max days in \'Next Up\'</string>
+    <string name="pref_up_next_max_description">Maximum amount of days a show should stay in the \'Next Up\' list without watching it</string>
     <string name="pref_login">Login</string>
     <string name="pref_login_description">Servers, accounts, automatic sign in</string>
     <string name="pref_customization_description">Theme, home, remapping</string>

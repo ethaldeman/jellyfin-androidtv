@@ -50,6 +50,12 @@ class UserPreferences(context: Context) : SharedPreferenceStore(
 		var premieresEnabled = booleanPreference("pref_enable_premieres", false)
 
 		/**
+		 * Maximum time for item to be displayed in Next Up list without watching it
+		 * Stored in days
+		 */
+		var nextUpMaxDays = intPreference("next_up_max_days",  365)
+
+		/**
 		 * Enable management of media like deleting items when the user has sufficient permissions.
 		 */
 		var mediaManagementEnabled = booleanPreference("enable_media_management", false)
