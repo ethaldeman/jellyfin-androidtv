@@ -96,9 +96,9 @@ class CustomizationPreferencesScreen : OptionsFragment() {
 			seekbar {
 				setTitle(R.string.pref_up_next_max)
 				setContent(R.string.pref_up_next_max_description)
-				min = 1
+				min = 0
 				max = 365
-				increment = 1
+				increment = 5
 				valueFormatter = object : DurationSeekBarPreference.ValueFormatter() {
 					override fun display(value: Int) = "${value}days"
 				}
